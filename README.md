@@ -6,14 +6,49 @@ Live site: [https://s2il.org](https://s2il.org)
 
 ## Prerequisites
 
-Install Zola (0.23.x recommended):
+Install [Zola](https://www.getzola.org/) (0.23.x recommended). Verify with `zola --version`.
+
+### macOS
 
 ```bash
-# macOS
 brew install zola
-
-# or see https://www.getzola.org/documentation/getting-started/installation/
 ```
+
+### Linux
+
+Download the latest Linux binary from the [GitHub releases](https://github.com/getzola/zola/releases) page (e.g. `zola-v0.23.6-x86_64-unknown-linux-gnu.tar.gz` or the aarch64 build for ARM). Then:
+
+```bash
+tar -xzf zola-v*-x86_64-unknown-linux-gnu.tar.gz
+mkdir -p ~/.local/bin
+mv zola ~/.local/bin/
+# ensure ~/.local/bin is on your PATH, then:
+zola --version
+```
+
+### Windows
+
+**Winget:**
+
+```powershell
+winget install getzola.zola
+```
+
+**Scoop:**
+
+```powershell
+scoop install zola
+```
+
+**Chocolatey:**
+
+```powershell
+choco install zola
+```
+
+Zola does not work in PowerShell ISE; use Windows Terminal, PowerShell, or Command Prompt.
+
+More options (including building from source): [Zola installation docs](https://www.getzola.org/documentation/getting-started/installation/).
 
 ## Local development
 
