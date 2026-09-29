@@ -4,7 +4,7 @@ weight = 21
 
 [extra]
 group = "Students"
-role = "undergraduate student"
+role = "Undergraduate student"
 email = ""
 photo = ""
 initials = "TH"

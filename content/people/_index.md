@@ -6,5 +6,5 @@ page_template = "person.html"
 
 [extra]
 # Groups are shown in this order; each person sets extra.group to one of these.
-groups = ["Group Leader", "Researchers", "Students", "Alumni"]
+groups = ["", "Postdocs", "Students", "Alumni"]
 +++
