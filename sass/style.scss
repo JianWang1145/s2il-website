@@ -32,7 +32,7 @@ h2 { margin-top: 2.2rem; border-bottom: 1px solid var(--border); padding-bottom:
 
 /* Header / nav */
 .site-header { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
-.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 64px; flex-wrap: wrap; }
+.header-inner { display: flex; align-items: center; gap: 2rem; min-height: 64px; flex-wrap: wrap; }
 .brand { font-weight: 700; font-size: 1.15rem; color: var(--fg); }
 .site-nav { display: flex; gap: 1.25rem;
   a { color: var(--muted); padding-block: .3rem; border-bottom: 2px solid transparent;
@@ -43,7 +43,7 @@ h2 { margin-top: 2.2rem; border-bottom: 1px solid var(--border); padding-bottom:
 .nav-toggle-label { display: none; }
 
 @media (max-width: 760px) {
-  .nav-toggle-label { display: block; cursor: pointer; padding: 1rem 0 1rem 1rem;
+  .nav-toggle-label { display: block; cursor: pointer; padding: 1rem 0 1rem 1rem; margin-left: auto;
     span, span::before, span::after { display: block; width: 22px; height: 2px; background: var(--fg); position: relative; content: ""; }
     span::before { position: absolute; top: -7px; } span::after { position: absolute; top: 7px; } }
   .site-nav { display: none; flex-basis: 100%; flex-direction: column; gap: 0; padding-bottom: .75rem; }
