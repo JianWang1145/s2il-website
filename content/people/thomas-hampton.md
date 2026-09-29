@@ -8,4 +8,6 @@ role = "Undergraduate student"
 email = ""
 photo = ""
 initials = "TH"
+# project slugs, e.g. ["vistiq", "flim"]
+projects = []
 +++

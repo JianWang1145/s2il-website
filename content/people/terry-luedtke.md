@@ -8,6 +8,8 @@ role = "MSDS student"
 email = ""
 photo = ""
 current = ""  # current position, shown in the alumni list
+# project slugs, e.g. ["vistiq", "flim"]
+projects = []
 +++
 
 

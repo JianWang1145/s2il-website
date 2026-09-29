@@ -7,6 +7,8 @@ group = ""
 role = "Group Leader"
 email = ""
 photo = "images/people/ks.png"
+# project slugs, e.g. ["vistiq", "flim"]
+projects = []
 +++
 
 I am an Associate Professor of Data Science at the University of Virginia. Originally from Germany, I studied Biology at the University of Tübingen and conducted my graduate research in developmental neurobiology at the University of Oregon. After a postdoctoral position at UC Berkeley and Stanford University, I spent a brief stint in industry before joining UVA in 2013 as an Assistant Professor of Biology.
