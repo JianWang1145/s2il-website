@@ -1,5 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Tags</h1>
-<ul>{% for t in terms %}<li><a href="{{ t.permalink }}">#{{ t.name }}</a> ({{ t.pages | length }})</li>{% endfor %}</ul>
+<ul>{% for t in terms %}<li><a href="{{ t.path }}">#{{ t.name }}</a> ({{ t.pages | length }})</li>{% endfor %}</ul>
 {% endblock %}

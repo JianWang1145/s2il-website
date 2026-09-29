@@ -15,7 +15,7 @@
       {% include "partials/project-card.html" %}
     {% endfor %}
   </div>
-  <p><a href="{{ projects.permalink }}">All projects →</a></p>
+  <p><a href="{{ projects.path }}">All projects →</a></p>
 </section>
 
 {% set news = get_section(path="news/_index.md") %}
@@ -23,6 +23,6 @@
   <h2>Latest news</h2>
   {% set pages = news.pages[:3] %}
   {% include "partials/news-list.html" %}
-  <p><a href="{{ news.permalink }}">All news →</a></p>
+  <p><a href="{{ news.path }}">All news →</a></p>
 </section>
 {% endblock %}

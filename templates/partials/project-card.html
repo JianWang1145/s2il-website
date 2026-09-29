@@ -1,14 +1,18 @@
 <article class="card">
   {% if p.extra.image %}
-  <a class="card-media" href="{{ p.permalink }}">
+  <a class="card-media" href="{{ p.path }}">
     {% set ext = p.extra.image | split(pat=".") | last | lower %}
     {% if ext == "mov" or ext == "mp4" or ext == "webm" %}
-    <video src="{{ get_url(path=p.extra.image) }}" muted loop playsinline autoplay preload="metadata"></video>
+    <video
+      class="lazy-video"
+      {% if p.extra.poster %}poster="{{ get_url(path=p.extra.poster) | replace(from=config.base_url, to='') }}"{% endif %}
+      data-src="{{ get_url(path=p.extra.image) | replace(from=config.base_url, to='') }}"
+      muted loop playsinline preload="none"></video>
     {% else %}
-    <img src="{{ get_url(path=p.extra.image) }}" alt="{{ p.title }}" loading="lazy" decoding="async">
+    <img src="{{ get_url(path=p.extra.image) | replace(from=config.base_url, to='') }}" alt="{{ p.title }}" loading="lazy" decoding="async">
     {% endif %}
   </a>
   {% endif %}
-  <h3><a href="{{ p.permalink }}">{{ p.title }}</a></h3>
+  <h3><a href="{{ p.path }}">{{ p.title }}</a></h3>
   {% if p.description %}<p>{{ p.description }}</p>{% endif %}
 </article>

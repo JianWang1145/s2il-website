@@ -3,6 +3,6 @@
 <h1>{{ section.title }}</h1>
 <div class="prose">{{ section.content | safe }}</div>
 <ul>
-{% for p in section.pages %}<li><a href="{{ p.permalink }}">{{ p.title }}</a></li>{% endfor %}
+{% for p in section.pages %}<li><a href="{{ p.path }}">{{ p.title }}</a></li>{% endfor %}
 </ul>
 {% endblock %}

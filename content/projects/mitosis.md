@@ -5,6 +5,7 @@ description = "Unsupervised tracking of mitotic spindle dynamics"
 
 [extra]
 image = "/images/projects/mitosis.mp4"
+poster = "images/projects/mitosis-poster.jpg"
 legend = "First division of a C. elegans embryo. Mitotic spindle (green) and DNA (magenta) fluorescently labeled. Data courtesy of Vitaly Zimyanin and Stefanie Redemann."
 publications = ["publications/2026-chromokinesin-klp-19-regulates-microtubule-overlap.md"]
 github = "https://github.com/uvarc/mitosisanalyzer"

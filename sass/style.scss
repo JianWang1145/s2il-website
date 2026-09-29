@@ -110,7 +110,7 @@ dl.meta { display: grid; grid-template-columns: max-content 1fr; gap: .3rem 1rem
   padding: 1.2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
   &.flip { grid-template-columns: 2fr 1fr; .person-side { order: 2; } } }
 .person-side { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .5rem;
-  img, .avatar { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; }
+  img, .avatar { width: 250px; height: 250px; border-radius: 50%; object-fit: cover; }
   .avatar { display: grid; place-items: center; background: var(--bg); border: 1px solid var(--border);
     font-size: 2.2rem; color: var(--muted); }
   a:hover { text-decoration: none; } }
@@ -119,7 +119,7 @@ dl.meta { display: grid; grid-template-columns: max-content 1fr; gap: .3rem 1rem
   .person-row, .person-row.flip { grid-template-columns: 1fr; .person-side { order: 0; } }
 }
 .alumni { list-style: none; padding: 0; li { padding: .3rem 0; } }
-.person-photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
+.person-photo { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; }
 
 /* Contact */
 .contact { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;

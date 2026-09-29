@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <article class="prose">
-  <p class="breadcrumb"><a href="{{ get_url(path='/projects/') }}">← Projects</a></p>
+  <p class="breadcrumb"><a href="/projects/">← Projects</a></p>
   <h1>{{ page.title }}</h1>
   {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
   {% if page.extra.image %}
@@ -10,16 +10,16 @@
       {% set ext = page.extra.image | split(pat=".") | last | lower %}
       {% if ext == "mov" or ext == "mp4" or ext == "webm" %}
       <video
-        src="{{ get_url(path=page.extra.image) }}"
-        {% if page.extra.image_side %}poster="{{ get_url(path=page.extra.image_side) }}"{% endif %}
-        muted loop playsinline autoplay controls></video>
+        src="{{ get_url(path=page.extra.image) | replace(from=config.base_url, to='') }}"
+        {% if page.extra.poster %}poster="{{ get_url(path=page.extra.poster) | replace(from=config.base_url, to='') }}"{% elif page.extra.image_side %}poster="{{ get_url(path=page.extra.image_side) | replace(from=config.base_url, to='') }}"{% endif %}
+        muted loop playsinline autoplay controls preload="metadata"></video>
       {% else %}
-      <img src="{{ get_url(path=page.extra.image) }}" alt="{{ page.title }}" loading="eager" decoding="async">
+      <img src="{{ get_url(path=page.extra.image) | replace(from=config.base_url, to='') }}" alt="{{ page.title }}" loading="eager" decoding="async">
       {% endif %}
     </div>
     {% if page.extra.image_side %}
     <div class="project-media-side">
-      <img src="{{ get_url(path=page.extra.image_side) }}" alt="{{ page.title }}">
+      <img src="{{ get_url(path=page.extra.image_side) | replace(from=config.base_url, to='') }}" alt="{{ page.title }}">
     </div>
     {% endif %}
     {% if page.extra.legend %}
