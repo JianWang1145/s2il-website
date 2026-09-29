@@ -16,7 +16,7 @@ jobs:
           docker run --rm \
             -v "${{ github.workspace }}:/app" \
             -w /app \
-            ghcr.io/getzola/zola:v0.20.0 \
+            ghcr.io/getzola/zola:v0.23.6 \
             build
 
       - name: Configure AWS credentials
