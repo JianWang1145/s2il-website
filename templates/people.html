@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ section.title }}</h1>
+<div class="prose">{{ section.content | safe }}</div>
+{% for g in section.extra.groups %}{% if g != "Alumni" %}
+  {% set members = [p for p in section.pages if p.extra.group == g] %}
+  {% if members | length > 0 %}
+  <h2>{{ g }}</h2>
+  <div class="people-rows">
+    {% for p in members %}
+    <div class="person-row{% if loop.index is even %} flip{% endif %}">
+      <div class="person-side">
+        <a href="{{ p.permalink }}">
+        {% if p.extra.photo %}<img src="{{ get_url(path=p.extra.photo) }}" alt="{{ p.title }}">
+        {% elif p.extra.initials %}<div class="avatar">{{ p.extra.initials }}</div>
+        {% else %}<div class="avatar">{{ [w[0] for w in p.title | split(pat=" ")] | join(sep="") }}</div>{% endif %}
+        </a>
+        <span class="role">{{ p.extra.role }}</span>
+      </div>
+      <div class="person-main">
+        <h3><a href="{{ p.permalink }}">{{ p.title }}</a></h3>
+        {% if p.description %}<p>{{ p.description }}</p>{% else %}{{ p.content | safe }}{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endif %}{% endfor %}
+
+{% set alumni = [p for p in section.pages if p.extra.group == "Alumni"] %}
+{% if alumni | length > 0 %}
+<h2>Alumni</h2>
+<ul class="alumni">
+  {% for p in alumni %}
+  <li><a href="{{ p.permalink }}">{{ p.title }}</a>{% if p.extra.role %} · {{ p.extra.role }}{% endif %}{% if p.extra.current %} <span class="role">— now {{ p.extra.current }}</span>{% endif %}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

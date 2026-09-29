@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>{{ config.title | replace(from="S2IL", to="S<sup>2</sup>IL") | safe }}</h1>
+  <p class="lead">{{ config.description | replace(from="S2IL", to="S<sup>2</sup>IL") | safe }}</p>
+</section>
+
+<section class="prose">{{ section.content | safe }}</section>
+
+{% set projects = get_section(path="projects/_index.md") %}
+<section>
+  <h2>Featured projects</h2>
+  <div class="grid">
+    {% for p in projects.pages[:3] %}
+      {% include "partials/project-card.html" %}
+    {% endfor %}
+  </div>
+  <p><a href="{{ projects.permalink }}">All projects →</a></p>
+</section>
+
+{% set news = get_section(path="news/_index.md") %}
+<section>
+  <h2>Latest news</h2>
+  {% set pages = news.pages[:3] %}
+  {% include "partials/news-list.html" %}
+  <p><a href="{{ news.permalink }}">All news →</a></p>
+</section>
+{% endblock %}

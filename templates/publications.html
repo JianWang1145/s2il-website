@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ section.title }}</h1>
+{% set cutoff = section.extra.recent_from %}
+{% set recent %}<ul class="publications">
+{% for p in section.pages %}{% if p.year >= cutoff %}{% include "partials/publication.html" %}{% endif %}{% endfor %}
+</ul>{% endset %}
+{% set earlier %}<ul class="publications">
+{% for p in section.pages %}{% if p.year < cutoff %}{% include "partials/publication.html" %}{% endif %}{% endfor %}
+</ul>{% endset %}
+<div class="prose">{{ section.content | safe | replace(from="<!-- recent -->", to=recent) | replace(from="<!-- earlier -->", to=earlier) }}</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ section.title }}</h1>
+<div class="prose">{{ section.content | safe }}</div>
+<div class="grid">
+  {% for p in section.pages %}{% include "partials/project-card.html" %}{% endfor %}
+</div>
+{% endblock %}

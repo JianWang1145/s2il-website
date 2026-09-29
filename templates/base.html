@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ config.default_language }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% if page?.title %}{{ page.title }} · {% elif section?.title and section.path != "/" %}{{ section.title }} · {% endif %}{{ config.title | replace(from="S2IL", to="S²IL") }}{% endblock %}</title>
+  <meta name="description" content="{% if page?.description %}{{ page.description }}{% else %}{{ config.description | replace(from="S2IL", to="S²IL") }}{% endif %}">
+  <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ config.title | replace(from="S2IL", to="S²IL") }}" href="{{ get_url(path='atom.xml', trailing_slash=false) }}">
+</head>
+<body>
+  {% include "partials/header.html" %}
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  {% include "partials/footer.html" %}
+</body>
+</html>

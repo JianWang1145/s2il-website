@@ -1,0 +1,13 @@
+{#- Papers have no page of their own: forward to the DOI (or url), else back to the list. -#}
+{%- if page.extra.doi %}{% set href = "https://doi.org/" ~ page.extra.doi %}{% elif page.extra.url %}{% set href = page.extra.url %}{% else %}{% set href = get_url(path="/publications/") %}{% endif -%}
+<!DOCTYPE html>
+<html lang="{{ config.default_language }}">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{{ href }}">
+  <meta http-equiv="refresh" content="0; url={{ href }}">
+</head>
+<body><a href="{{ href }}">{{ page.title }}</a></body>
+</html>

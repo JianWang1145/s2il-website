@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="prose">
+  <p class="breadcrumb"><a href="{{ get_url(path='/projects/') }}">← Projects</a></p>
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+  {% if page.extra.image %}
+  <figure class="project-media{% if page.extra.image_side %} project-media-pair{% endif %}">
+    <div class="project-media-main">
+      {% set ext = page.extra.image | split(pat=".") | last | lower %}
+      {% if ext == "mov" or ext == "mp4" or ext == "webm" %}
+      <video src="{{ get_url(path=page.extra.image) }}" muted loop playsinline autoplay controls></video>
+      {% else %}
+      <img src="{{ get_url(path=page.extra.image) }}" alt="{{ page.title }}">
+      {% endif %}
+    </div>
+    {% if page.extra.image_side %}
+    <div class="project-media-side">
+      <img src="{{ get_url(path=page.extra.image_side) }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+    {% if page.extra.legend %}
+    <figcaption>{{ page.extra.legend | markdown(inline=true) | safe }}</figcaption>
+    {% endif %}
+  </figure>
+  {% endif %}
+  {{ page.content | safe }}
+  {% if page.extra.collaborators %}
+  <p class="collaborators">
+    <strong>Collaborators:</strong>
+    {% for c in page.extra.collaborators %}{{ c | markdown(inline=true) | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
+  </p>
+  {% endif %}
+  {% if page.extra.publications and page.extra.publications | length > 0 %}
+  <h2>Publications</h2>
+  <ul class="publications">
+    {% for path in page.extra.publications %}{% set p = get_page(path=path) %}{% include "partials/publication.html" %}{% endfor %}
+  </ul>
+  {% endif %}
+  {% if page.extra.github %}
+  <p class="github"><strong>Code:</strong> <a href="{{ page.extra.github }}" rel="noopener">{{ page.extra.github }}</a></p>
+  {% endif %}
+  {% if page.extra.funding %}
+  <p class="funding"><strong>Funding:</strong> {{ page.extra.funding }}</p>
+  {% endif %}
+</article>
+{% endblock %}
