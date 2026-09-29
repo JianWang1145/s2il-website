@@ -1,10 +1,10 @@
 {%- if p.extra.doi %}{% set href = "https://doi.org/" ~ p.extra.doi %}{% else %}{% set href = p.extra.url %}{% endif -%}
 <li class="publication">
-  <span class="pub-title">{% if href %}<a href="{{ href }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</span>
+  <span class="pub-title">{% if href %}<a href="{{ href }}" target="_blank" rel="noopener noreferrer">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</span>
   <span class="pub-authors">{{ p.extra.authors }}</span>
   <span class="pub-venue">{{ p.extra.venue }} ({{ p.year }})</span>
   {% if p.extra.pdf or p.extra.code %}<span class="pub-links">
-    {% if p.extra.pdf %}<a href="{{ p.extra.pdf }}">PDF</a>{% endif %}
-    {% if p.extra.code %}<a href="{{ p.extra.code }}">Code</a>{% endif %}
+    {% if p.extra.pdf %}<a href="{{ p.extra.pdf }}" target="_blank" rel="noopener noreferrer">PDF</a>{% endif %}
+    {% if p.extra.code %}<a href="{{ p.extra.code }}" target="_blank" rel="noopener noreferrer">Code</a>{% endif %}
   </span>{% endif %}
 </li>

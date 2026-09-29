@@ -16,6 +16,17 @@
   {% include "partials/footer.html" %}
   <script>
     (() => {
+      // Open all external links in a new tab (markdown + template links)
+      document.querySelectorAll("a[href]").forEach((a) => {
+        const href = a.getAttribute("href");
+        if (!href || href.startsWith("#") || href.startsWith("/") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+        let url;
+        try { url = new URL(href, window.location.origin); } catch { return; }
+        if (url.origin === window.location.origin) return;
+        a.target = "_blank";
+        a.rel = (a.rel ? a.rel + " " : "") + "noopener noreferrer";
+      });
+
       const vids = document.querySelectorAll("video.lazy-video[data-src]");
       if (!vids.length) return;
       const play = (v) => {
