@@ -3,9 +3,9 @@
   <a class="card-media" href="{{ p.permalink }}">
     {% set ext = p.extra.image | split(pat=".") | last | lower %}
     {% if ext == "mov" or ext == "mp4" or ext == "webm" %}
-    <video src="{{ get_url(path=p.extra.image) }}" muted loop playsinline autoplay></video>
+    <video src="{{ get_url(path=p.extra.image) }}" muted loop playsinline autoplay preload="metadata"></video>
     {% else %}
-    <img src="{{ get_url(path=p.extra.image) }}" alt="{{ p.title }}">
+    <img src="{{ get_url(path=p.extra.image) }}" alt="{{ p.title }}" loading="lazy" decoding="async">
     {% endif %}
   </a>
   {% endif %}

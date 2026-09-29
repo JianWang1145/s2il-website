@@ -11,7 +11,7 @@
     <div class="person-row{% if loop.index is even %} flip{% endif %}">
       <div class="person-side">
         <a href="{{ p.permalink }}">
-        {% if p.extra.photo %}<img src="{{ get_url(path=p.extra.photo) }}" alt="{{ p.title }}">
+        {% if p.extra.photo %}<img src="{{ get_url(path=p.extra.photo) }}" alt="{{ p.title }}" loading="lazy" decoding="async">
         {% elif p.extra.initials %}<div class="avatar">{{ p.extra.initials }}</div>
         {% else %}<div class="avatar">{{ [w[0] for w in p.title | split(pat=" ")] | join(sep="") }}</div>{% endif %}
         </a>

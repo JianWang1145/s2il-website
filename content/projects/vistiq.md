@@ -4,7 +4,7 @@ weight = 1
 description = "Hierarchical spatiotemporal analytics across biological scales"
 
 [extra]
-image = "images/projects/vistiq.mov"
+image = "images/projects/vistiq.mp4"
 image_side = "images/projects/vistiq.png"
 legend = "Proliferation network of neural stem cells (NSCs) in the developing Drosophila brain. Note the bilateral symmetry of the two brain hemispheres. NSCs in magenta; proliferation marker in green. Data courtesy of [Sarah Siegrist](https://siegristlab.org)."
 publications = []

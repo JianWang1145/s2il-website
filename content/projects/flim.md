@@ -4,7 +4,7 @@ weight = 2
 description = "Probing cellular metabolic states with fluorescence lifetime imaging microscopy"
 
 [extra]
-image = "/images/projects/flim.png"
+image = "/images/projects/flim.jpg"
 legend = "Fluorescence lifetime imaging microscopy"
 publications = [
     "publications/2026-label-free-optical-biomarker-for-prostate.md",
