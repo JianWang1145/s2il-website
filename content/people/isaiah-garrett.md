@@ -6,7 +6,7 @@ weight = 20
 group = "Students"
 role = "BSDS undergraduate student"
 email = "tqv9uu@virginia.edu"
-photo = "images/people/ig.jpg"
+photo = "images/people/ig.JPG"
 # project slugs, e.g. ["vistiq", "flim"]
 projects = ["vistiq"]
 +++
